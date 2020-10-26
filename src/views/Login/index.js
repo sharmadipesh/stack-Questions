@@ -1,8 +1,9 @@
 import React, { Component } from 'react';
 import {reduxSetup,loginAuthHnadler} from 'redux/actions/Auth';
 import {connect} from 'react-redux'; 
-import { Form, Input, Button,message } from 'antd';
+import { Form, Input, Button, message , notification} from 'antd';
 import {Routes} from 'config/Routes';
+import { SmileOutlined } from '@ant-design/icons';
 
 class LoginHandler extends Component {
     componentDidMount = () =>{
@@ -22,6 +23,12 @@ class LoginHandler extends Component {
             })
         }else{
             message.error('Something went wrong!!!');
+            notification.open({
+                message: 'Credentials',
+                description:
+                  `Email : rachna_lulla@gmail.com   Password : Rachna@123` ,
+                icon: <SmileOutlined style={{ color: '#574ee1' }} />,
+            });
         }
     };
 
